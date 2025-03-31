@@ -28,7 +28,7 @@ export const Collections = [
       { key: "name", type: "string", required: true, description: "名称" }, // 名称
       { key: "description", type: "string", description: "描述" }, // 描述
       { key: "icon", type: "string", description: "图标" }, // 图标
-      { key: "userId", type: "string", required: true, description: "用户ID" }, // 用户ID
+      { key: "userId", type: "string", description: "用户ID" }, // 用户ID
     ],
   },
   {
@@ -36,8 +36,10 @@ export const Collections = [
     description: "标签表",
     attributes: [
       { key: "name", type: "string", required: true, description: "名称" }, // 名称
+      { key: "description", type: "string", description: "描述" }, // 描述
+      { key: "icon", type: "string", description: "图标" }, // 图标
       { key: "hotness", type: "number", description: "热度" }, // 热度
-      { key: "userId", type: "string", required: true, description: "用户ID" }, // 用户ID
+      { key: "userId", type: "string", description: "用户ID" }, // 用户ID
     ],
   },
   {
@@ -55,6 +57,8 @@ export const Collections = [
       { key: "author", type: "string", description: "作者" }, // 作者
       { key: "userId", type: "string", required: true, description: "用户ID" }, // 用户ID
       { key: "images", type: "string", array: true, description: "图片数组" }, // 图片数组
+      { key: "english", type: "string", size: 2000, description: "英文版本" }, // 英文版本
+      { key: "explain", type: "string", size: 5000, description: "解读" }, // 解读
       {
         key: "isPublic",
         type: "boolean",
@@ -100,7 +104,7 @@ export const Collections = [
       { key: "title", type: "string", required: true, description: "标题" }, // 标题
       { key: "description", type: "string", size: 1000, description: "描述" }, // 描述
       { key: "coverImage", type: "string", description: "封面图片" }, // 封面图片
-      { key: "userId", type: "string", required: true, description: "用户ID" }, // 用户ID
+      { key: "userId", type: "string", description: "用户ID" }, // 用户ID
       {
         key: "isPublic",
         type: "boolean",
@@ -221,7 +225,7 @@ export const Collections = [
     name: "music",
     description: "音乐表",
     attributes: [
-      { key: "userId", type: "string", required: true, description: "用户ID" }, // 用户ID
+      { key: "userId", type: "string", description: "用户ID" }, // 用户ID
       { key: "title", type: "string", required: true, description: "标题" }, // 标题
       { key: "url", type: "string", required: true, description: "URL" }, // URL
       { key: "coverImage", type: "string", description: "封面图片" }, // 封面图片

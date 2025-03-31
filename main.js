@@ -1,4 +1,4 @@
-import { Client, Teams, ID } from "node-appwrite";
+import { Client, Teams, ID, Storage } from "node-appwrite";
 import "dotenv/config";
 
 import { createDatabaseOpt } from "./src/database/index.js";
@@ -15,11 +15,31 @@ async function boot() {
 
   // create a team
   const teams = new Teams(client);
-  await teams.create(ID.unique(), "LiteraryTeam", [
-    "member",
-    "admin",
-    "disabled",
-  ]);
+  const team_result = await teams.list();
+  if (team_result.total === 0) {
+    await teams.create(ID.unique(), "jych", ["member", "admin", "disabled"]);
+  }
+
+  const storage = new Storage(client);
+  const storage_result = await storage.listBuckets();
+  console.log(storage_result);
+
+  if (storage_result.total === 0) {
+    await Promise.all([
+      storage.createBucket("wencai-user", "用户上传", [
+        `read("any")`,
+        `write("any")`,
+      ]),
+      storage.createBucket("wencai-admin", "管理员上传", [
+        `read("any")`,
+        `write("any")`,
+      ]),
+      storage.createBucket("wencai-radio", "音视频", [
+        `read("any")`,
+        `write("any")`,
+      ]),
+    ]);
+  }
 
   // database operation
   await createDatabaseOpt(client);

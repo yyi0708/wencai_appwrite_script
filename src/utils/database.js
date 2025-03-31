@@ -1,4 +1,4 @@
-import { ID, Permission, Role } from "node-appwrite";
+import { RelationMutate, Permission, Role } from "node-appwrite";
 
 // 创建集合
 export async function createCollection(database, databaseId, options) {
@@ -86,18 +86,6 @@ export const RelationshipAttributeFn = (
   Collections.forEach((collection) => {
     if (collection.relationships) {
       collection.relationships.forEach((relationship) => {
-        console.log(
-          databaseId,
-          collection.name,
-          relationship.target,
-          relationship.type,
-          relationship.twoWay,
-          relationship.localKey,
-          relationship.foreignKey,
-          relationship.onDelete,
-          "collection.name"
-        );
-
         promiseArray.push(
           database.createRelationshipAttribute(
             databaseId,
@@ -107,7 +95,7 @@ export const RelationshipAttributeFn = (
             relationship.twoWay,
             relationship.localKey,
             relationship.foreignKey,
-            relationship.onDelete
+            relationship.onDelete || RelationMutate.SetNull
           )
         );
       });

@@ -11,7 +11,7 @@ export async function createDatabaseOpt(client) {
     const database = new Databases(client);
 
     const db = await database.create(
-      ID.unique(), // 数据库ID
+      "wencai", // 数据库ID
       "wencai" // 显示名称
     );
 
