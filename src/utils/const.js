@@ -237,3 +237,47 @@ export const Collections = [
     ],
   },
 ];
+
+// 系统类型
+export const TypesEnum = [
+  {
+    name: "原创",
+    description: "独一无二的创作，展现个性与才华",
+  },
+  {
+    name: "搞笑",
+    description: "让人捧腹大笑的幽默内容",
+  },
+  {
+    name: "语录",
+    description: "简短却深刻的经典语句",
+  },
+  {
+    name: "名人名句",
+    description: "名人智慧的精炼表达",
+  },
+  {
+    name: "诗词",
+    description: "优美的文字，传递情感与意境",
+  },
+  {
+    name: "生活",
+    description: "记录日常点滴，感悟生活真谛",
+  },
+  {
+    name: "小说",
+    description: "引人入胜的故事与情节",
+  },
+  {
+    name: "电影",
+    description: "光影世界中的精彩瞬间",
+  },
+  {
+    name: "随笔",
+    description: "自由随性的文字记录",
+  },
+  {
+    name: "歌词",
+    description: "音乐与文字的完美结合",
+  },
+];

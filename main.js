@@ -1,7 +1,7 @@
 import { Client, Teams, ID, Storage } from "node-appwrite";
 import "dotenv/config";
 
-import { createDatabaseOpt } from "./src/database/index.js";
+import { createDatabaseOpt, gen_init_data } from "./src/database/index.js";
 
 const { ENDPOINT_ADRESS, API_KEY, PROJECT_ID } = process.env;
 
@@ -22,7 +22,6 @@ async function boot() {
 
   const storage = new Storage(client);
   const storage_result = await storage.listBuckets();
-  console.log(storage_result);
 
   if (storage_result.total === 0) {
     await Promise.all([
@@ -44,6 +43,8 @@ async function boot() {
   // database operation
   await createDatabaseOpt(client);
 
+  // 初始化批量生成数据
+  await gen_init_data(client);
   console.log("初始化创建完毕");
 }
 
